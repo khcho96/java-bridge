@@ -1,6 +1,5 @@
 package bridge.domain;
 
-import bridge.dto.FinalResultDto;
 import bridge.dto.ResultDto;
 import bridge.generater.BridgeMaker;
 import bridge.generater.BridgeRandomNumberGenerator;
@@ -27,18 +26,13 @@ public class BridgeGame {
      * <p>
      * 이동을 위해 필요한 메서드의 반환 타입(return type), 인자(parameter)는 자유롭게 추가하거나 변경할 수 있다.
      */
-    public MovingResult move(String moving) {
+    public void move(String moving) {
         if (bridge.isSuccessMoving(moving)) {
-            if (bridge.isLastMoving()) {
-                result.updateState(moving, MovingResult.SUCCESS);
-                return MovingResult.WIN;
-            }
             result.updateState(moving, MovingResult.SUCCESS);
-            return MovingResult.SUCCESS;
+            return;
         }
 
         result.updateState(moving, MovingResult.FAIL);
-        return MovingResult.FAIL;
     }
 
     /**
@@ -53,10 +47,10 @@ public class BridgeGame {
     }
 
     public ResultDto getResult() {
-        return result.getResult();
+        return result.getResult(tryCount);
     }
 
-    public FinalResultDto getFinalResult() {
-        return result.getFinalResult(tryCount);
+    public boolean isGameOver() {
+        return bridge.isLastMoving();
     }
 }

@@ -3,7 +3,6 @@ package bridge.domain;
 import bridge.constant.Constant;
 import bridge.constant.FinalResult;
 import bridge.constant.MovingResult;
-import bridge.dto.FinalResultDto;
 import bridge.dto.ResultDto;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,11 +45,7 @@ public class Result {
         finalResult = FinalResult.LOSE;
     }
 
-    public ResultDto getResult() {
-        return new ResultDto(upBridge, downBridge);
-    }
-
-    public FinalResultDto getFinalResult(int tryCount) {
-        return new FinalResultDto(upBridge, downBridge, tryCount, finalResult);
+    public ResultDto getResult(int tryCount) {
+        return new ResultDto(upBridge, downBridge, tryCount, finalResult);
     }
 }
