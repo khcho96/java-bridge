@@ -1,5 +1,6 @@
 package bridge;
 
+import bridge.constant.Result;
 import bridge.domain.BridgeGame;
 import bridge.util.InputParser;
 import bridge.view.InputView;
@@ -14,6 +15,11 @@ public class Application {
         int bridgeSize = InputParser.parseToInteger(readBridgeSize);
         BridgeGame bridgeGame = new BridgeGame(bridgeSize);
 
+        while (true) {
+            String readMoving = InputView.readMoving();
+            String moving = InputParser.parseMoving(readMoving);
 
+            Result result = bridgeGame.move(moving);
+        }
     }
 }

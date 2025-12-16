@@ -1,12 +1,5 @@
 package bridge.util;
 
-import static bridge.constant.ErrorMessage.BRIDGE_SIZE_ERROR;
-import static bridge.util.Validator.validateBridgeSize;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Stream;
-
 public final class InputParser {
 
     private static final String DELIMITER = ",";
@@ -17,8 +10,14 @@ public final class InputParser {
 
     public static Integer parseToInteger(String rawInput) {
         int size =  NumberConvertor.convertToNumber(rawInput.strip());
-        validateBridgeSize(size);
+        Validator.validateBridgeSize(size);
 
         return size;
+    }
+
+    public static String parseMoving(String readMoving) {
+        String moving = readMoving.strip();
+        Validator.validateMoving(moving);
+        return moving;
     }
 }
