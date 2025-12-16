@@ -14,14 +14,30 @@ public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
         OutputView.printStart();
-        String readBridgeSize = InputView.readBridgeSize();
-        int bridgeSize = InputParser.parseToInteger(readBridgeSize);
+
+        int bridgeSize;
+        while (true) {
+            try {
+                String readBridgeSize = InputView.readBridgeSize();
+                bridgeSize = InputParser.parseToInteger(readBridgeSize);
+                break;
+            } catch (IllegalArgumentException e) {
+                OutputView.printErrorMessage(e);
+            }
+        }
         BridgeGame bridgeGame = new BridgeGame(bridgeSize);
 
         while (true) {
-            String readMoving = InputView.readMoving();
-            String moving = InputParser.parseMoving(readMoving);
-
+            String moving;
+            while (true) {
+                try {
+                    String readMoving = InputView.readMoving();
+                    moving = InputParser.parseMoving(readMoving);
+                    break;
+                } catch (IllegalArgumentException e) {
+                    OutputView.printErrorMessage(e);
+                }
+            }
             MovingResult movingResult = bridgeGame.move(moving);
 
             if (movingResult == MovingResult.SUCCESS) {
@@ -34,8 +50,16 @@ public class Application {
                 ResultDto result = bridgeGame.getResult();
                 OutputView.printMap(result);
 
-                String readGameCommand = InputView.readGameCommand();
-                String gameCommand = InputParser.parseGameCommand(readGameCommand);
+                String gameCommand;
+                while (true) {
+                    try {
+                        String readGameCommand = InputView.readGameCommand();
+                        gameCommand = InputParser.parseGameCommand(readGameCommand);
+                        break;
+                    } catch (IllegalArgumentException e) {
+                        OutputView.printErrorMessage(e);
+                    }
+                }
 
                 if (gameCommand.equals(Constant.RESTART)) {
                     bridgeGame.retry();
@@ -50,6 +74,7 @@ public class Application {
             if (movingResult == MovingResult.WIN) {
                 FinalResultDto finalResult = bridgeGame.getFinalResult();
                 OutputView.printResult(finalResult);
+                break;
             }
         }
     }
