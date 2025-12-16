@@ -3,6 +3,7 @@ package bridge;
 import bridge.constant.Constant;
 import bridge.constant.MovingResult;
 import bridge.domain.BridgeGame;
+import bridge.dto.FinalResultDto;
 import bridge.dto.ResultDto;
 import bridge.util.InputParser;
 import bridge.view.InputView;
@@ -29,7 +30,27 @@ public class Application {
                 continue;
             }
 
+            if (movingResult == MovingResult.FAIL) {
+                ResultDto result = bridgeGame.getResult();
+                OutputView.printMap(result);
 
+                String readGameCommand = InputView.readGameCommand();
+                String gameCommand = InputParser.parseGameCommand(readGameCommand);
+
+                if (gameCommand.equals(Constant.RESTART)) {
+                    bridgeGame.retry();
+                    continue;
+                }
+
+                FinalResultDto finalResult = bridgeGame.getFinalResult();
+                OutputView.printResult(finalResult);
+                break;
+            }
+
+            if (movingResult == MovingResult.WIN) {
+                FinalResultDto finalResult = bridgeGame.getFinalResult();
+                OutputView.printResult(finalResult);
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 package bridge.domain;
 
+import bridge.dto.FinalResultDto;
 import bridge.dto.ResultDto;
 import bridge.generater.BridgeMaker;
 import bridge.generater.BridgeRandomNumberGenerator;
@@ -53,5 +54,9 @@ public class BridgeGame {
 
     public ResultDto getResult() {
         return result.getResult();
+    }
+
+    public FinalResultDto getFinalResult() {
+        return result.getFinalResult(tryCount);
     }
 }
