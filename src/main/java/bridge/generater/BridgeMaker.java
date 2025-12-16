@@ -1,5 +1,6 @@
 package bridge.generater;
 
+import bridge.constant.Constant;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,12 +24,12 @@ public class BridgeMaker {
         for (int i=0;i<size;i++) {
             int num = bridgeNumberGenerator.generate();
             if(num == 0) {
-                bridge.add("D");
+                bridge.add(Constant.DOWN);
                 continue;
             }
 
             if (num == 1) {
-                bridge.add("U");
+                bridge.add(Constant.UP);
             }
         }
 

@@ -20,4 +20,10 @@ public final class InputParser {
         Validator.validateMoving(moving);
         return moving;
     }
+
+    public static String parseGameCommand(String readCommand) {
+        String command = readCommand.strip();
+        Validator.validateCommand(command);
+        return command;
+    }
 }

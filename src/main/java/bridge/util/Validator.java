@@ -1,13 +1,13 @@
 package bridge.util;
 
 import static bridge.constant.ErrorMessage.BRIDGE_SIZE_ERROR;
+import static bridge.constant.ErrorMessage.COMMAND_ERROR;
 import static bridge.constant.ErrorMessage.MOVING_ERROR;
 
 public final class Validator {
 
-    private static final String CSV_FORMAT = "^ *([가-힣a-zA-Z]+-\\d+)+ *(, *([가-힣]+-\\d+)+ *)*$";
-    private static final String NUMBER_FORMAT = "\\d+";
     private static final String MOVING_FORMAT = "[UD]";
+    private static final String COMMAND_FORMAT = "[RQ]";
 
     private Validator() {}
 
@@ -20,6 +20,12 @@ public final class Validator {
     public static void validateMoving(String moving) {
         if (!moving.matches(MOVING_FORMAT)) {
             throw new IllegalArgumentException(MOVING_ERROR.getErrorMessage());
+        }
+    }
+
+    public static void validateCommand(String command) {
+        if (!command.matches(COMMAND_FORMAT)) {
+            throw new IllegalArgumentException(COMMAND_ERROR.getErrorMessage());
         }
     }
 }

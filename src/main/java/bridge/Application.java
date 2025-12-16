@@ -1,7 +1,9 @@
 package bridge;
 
-import bridge.constant.Result;
+import bridge.constant.Constant;
+import bridge.constant.MovingResult;
 import bridge.domain.BridgeGame;
+import bridge.dto.ResultDto;
 import bridge.util.InputParser;
 import bridge.view.InputView;
 import bridge.view.OutputView;
@@ -19,7 +21,15 @@ public class Application {
             String readMoving = InputView.readMoving();
             String moving = InputParser.parseMoving(readMoving);
 
-            Result result = bridgeGame.move(moving);
+            MovingResult movingResult = bridgeGame.move(moving);
+
+            if (movingResult == MovingResult.SUCCESS) {
+                ResultDto resultDto = bridgeGame.getResult();
+                OutputView.printMap(resultDto);
+                continue;
+            }
+
+
         }
     }
 }

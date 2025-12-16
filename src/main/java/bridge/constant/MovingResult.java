@@ -1,6 +1,6 @@
 package bridge.constant;
 
-public enum Result {
+public enum MovingResult {
     SUCCESS,
     FAIL,
     WIN,

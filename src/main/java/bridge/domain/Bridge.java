@@ -11,7 +11,7 @@ public class Bridge {
         this.bridge = bridge;
     }
 
-    public boolean isSuccessStep(String step) {
+    public boolean isSuccessMoving(String step) {
         if (bridge.get(position).equals(step)) {
             position++;
             return true;
@@ -23,7 +23,7 @@ public class Bridge {
         position = 0;
     }
 
-    public boolean isLastStep() {
+    public boolean isLastMoving() {
         return position == bridge.size();
     }
 }

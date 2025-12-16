@@ -1,8 +1,9 @@
 package bridge.domain;
 
+import bridge.dto.ResultDto;
 import bridge.generater.BridgeMaker;
 import bridge.generater.BridgeRandomNumberGenerator;
-import bridge.constant.Result;
+import bridge.constant.MovingResult;
 
 /**
  * 다리 건너기 게임을 관리하는 클래스
@@ -11,10 +12,13 @@ public class BridgeGame {
 
     private Bridge bridge;
     private int tryCount;
+    private Result result;
 
     public BridgeGame(int bridgeSize) {
         BridgeMaker bridgeMaker = new BridgeMaker(new BridgeRandomNumberGenerator());
         bridge = new Bridge(bridgeMaker.makeBridge(bridgeSize));
+        tryCount = 1;
+        result = new Result();
     }
 
     /**
@@ -22,15 +26,18 @@ public class BridgeGame {
      * <p>
      * 이동을 위해 필요한 메서드의 반환 타입(return type), 인자(parameter)는 자유롭게 추가하거나 변경할 수 있다.
      */
-    public Result move(String step) {
-        if (bridge.isSuccessStep(step)) {
-            if(bridge.isLastStep()) {
-                return Result.WIN;
+    public MovingResult move(String moving) {
+        if (bridge.isSuccessMoving(moving)) {
+            if (bridge.isLastMoving()) {
+                result.updateState(moving, MovingResult.SUCCESS);
+                return MovingResult.WIN;
             }
-            return Result.SUCCESS;
+            result.updateState(moving, MovingResult.SUCCESS);
+            return MovingResult.SUCCESS;
         }
 
-        return Result.FAIL;
+        result.updateState(moving, MovingResult.FAIL);
+        return MovingResult.FAIL;
     }
 
     /**
@@ -41,5 +48,10 @@ public class BridgeGame {
     public void retry() {
         tryCount++;
         bridge.resetPosition();
+        result = new Result();
+    }
+
+    public ResultDto getResult() {
+        return result.getResult();
     }
 }
