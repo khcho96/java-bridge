@@ -7,7 +7,7 @@ import bridge.constant.MovingResult;
 
 public class BridgeGame {
 
-    private Bridge bridge;
+    private final Bridge bridge;
     private int tryCount;
     private Result result;
 

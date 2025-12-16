@@ -13,8 +13,8 @@ public class Result {
     private static final String FAIL_MARK = "X";
     private static final String EMPTY_MARK = " ";
 
-    private List<String> upBridge;
-    private List<String> downBridge;
+    private final List<String> upBridge;
+    private final List<String> downBridge;
     private FinalResult finalResult;
 
     public Result() {
