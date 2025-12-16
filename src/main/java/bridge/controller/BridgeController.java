@@ -42,7 +42,7 @@ public class BridgeController {
         while (true) {
             try {
                 String readBridgeSize = InputView.readBridgeSize();
-                int bridgeSize = InputParser.parseToInteger(readBridgeSize);
+                int bridgeSize = InputParser.parseBridgeSize(readBridgeSize);
 
                 bridgeService.registerBridgeSize(bridgeSize);
 

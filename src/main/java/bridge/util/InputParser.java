@@ -2,28 +2,26 @@ package bridge.util;
 
 public final class InputParser {
 
-    private static final String DELIMITER = ",";
-    private static final String FIRST_DELIMITER = ",";
-    private static final String SECOND_DELIMITER = "-";
-
     private InputParser() {}
 
-    public static Integer parseToInteger(String rawInput) {
-        int size =  NumberConvertor.convertToNumber(rawInput.strip());
-        Validator.validateBridgeSize(size);
+    public static Integer parseBridgeSize(String readBridgeSize) {
+        int bridgeSize =  NumberConvertor.convertToNumber(readBridgeSize.strip());
+        Validator.validateBridgeSize(bridgeSize);
 
-        return size;
+        return bridgeSize;
     }
 
     public static String parseMoving(String readMoving) {
         String moving = readMoving.strip();
         Validator.validateMoving(moving);
+
         return moving;
     }
 
     public static String parseGameCommand(String readCommand) {
         String command = readCommand.strip();
         Validator.validateCommand(command);
+
         return command;
     }
 }

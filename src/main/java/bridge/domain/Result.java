@@ -9,6 +9,10 @@ import java.util.List;
 
 public class Result {
 
+    private static final String SUCCESS_MARK = "O";
+    private static final String FAIL_MARK = "X";
+    private static final String EMPTY_MARK = " ";
+
     private List<String> upBridge;
     private List<String> downBridge;
     private FinalResult finalResult;
@@ -20,28 +24,28 @@ public class Result {
 
     public void updateState(String moving, MovingResult movingResult) {
         if (movingResult.equals(MovingResult.SUCCESS) && moving.equals(Constant.UP)) {
-            upBridge.add("O");
-            downBridge.add(" ");
+            upBridge.add(SUCCESS_MARK);
+            downBridge.add(EMPTY_MARK);
             finalResult = FinalResult.WIN;
             return;
         }
 
         if (movingResult.equals(MovingResult.SUCCESS) && moving.equals(Constant.DOWN)) {
-            upBridge.add(" ");
-            downBridge.add("O");
+            upBridge.add(EMPTY_MARK);
+            downBridge.add(SUCCESS_MARK);
             finalResult = FinalResult.WIN;
             return;
         }
 
         if (movingResult.equals(MovingResult.FAIL) && moving.equals(Constant.UP)) {
-            upBridge.add("X");
-            downBridge.add(" ");
+            upBridge.add(FAIL_MARK);
+            downBridge.add(EMPTY_MARK);
             finalResult = FinalResult.LOSE;
             return;
         }
 
-        upBridge.add(" ");
-        downBridge.add("X");
+        upBridge.add(EMPTY_MARK);
+        downBridge.add(FAIL_MARK);
         finalResult = FinalResult.LOSE;
     }
 
