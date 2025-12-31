@@ -9,7 +9,8 @@ public final class Validator {
     private static final String MOVING_FORMAT = "[UD]";
     private static final String COMMAND_FORMAT = "[RQ]";
 
-    private Validator() {}
+    private Validator() {
+    }
 
     public static void validateBridgeSize(int size) {
         if (size < 3 || size > 20) {

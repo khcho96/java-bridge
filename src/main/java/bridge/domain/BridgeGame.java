@@ -1,8 +1,8 @@
 package bridge.domain;
 
 import bridge.dto.ResultDto;
-import bridge.generater.BridgeMaker;
-import bridge.generater.BridgeRandomNumberGenerator;
+import bridge.generator.BridgeMaker;
+import bridge.generator.BridgeRandomNumberGenerator;
 import bridge.constant.MovingResult;
 
 public class BridgeGame {

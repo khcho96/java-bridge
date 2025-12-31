@@ -5,7 +5,7 @@ public final class InputParser {
     private InputParser() {}
 
     public static Integer parseBridgeSize(String readBridgeSize) {
-        int bridgeSize =  NumberConvertor.convertToNumber(readBridgeSize.strip());
+        int bridgeSize =  NumberConverter.convertToNumber(readBridgeSize.strip());
         Validator.validateBridgeSize(bridgeSize);
 
         return bridgeSize;

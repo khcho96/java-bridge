@@ -1,6 +1,7 @@
-package bridge.generater;
+package bridge.generator;
 
 import bridge.constant.Constant;
+import bridge.domain.Bridge;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,9 +15,9 @@ public class BridgeMaker {
 
     public List<String> makeBridge(int size) {
         List<String> bridge = new ArrayList<>();
-        for (int i=0;i<size;i++) {
+        for (int i = 0; i < size; i++) {
             int num = bridgeNumberGenerator.generate();
-            if(num == 0) {
+            if (num == 0) {
                 bridge.add(Constant.DOWN);
                 continue;
             }

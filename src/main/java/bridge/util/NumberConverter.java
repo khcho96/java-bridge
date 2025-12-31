@@ -2,7 +2,7 @@ package bridge.util;
 
 import static bridge.constant.ErrorMessage.BRIDGE_SIZE_ERROR;
 
-public final class NumberConvertor {
+public final class NumberConverter {
 
     public static Integer convertToNumber(String input) {
         try {
