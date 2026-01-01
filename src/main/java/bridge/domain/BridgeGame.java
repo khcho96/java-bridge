@@ -1,4 +1,4 @@
-package bridge.generator.domain;
+package bridge.domain;
 
 import bridge.constant.BridgeSelection;
 import bridge.constant.Result;

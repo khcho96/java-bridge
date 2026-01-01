@@ -1,4 +1,4 @@
-package bridge.generator.domain;
+package bridge.domain;
 
 import bridge.constant.BridgeSelection;
 import java.util.ArrayList;
@@ -27,14 +27,14 @@ public class BridgeResult {
 
     public boolean isSuccess() {
         if (!result.isEmpty()) {
-            return result.getLast();
+            return result.get(result.size() - 1);
         }
         return false;
     }
 
     public boolean gameOver() {
         if (!result.isEmpty()) {
-            return result.size() == size || result.getLast() == false;
+            return result.size() == size || result.get(result.size() - 1) == false;
         }
         return false;
     }

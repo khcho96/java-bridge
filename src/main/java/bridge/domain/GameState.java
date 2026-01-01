@@ -1,8 +1,16 @@
-package bridge.generator.domain;
+package bridge.domain;
 
 import bridge.constant.BridgeSelection;
 
-public record GameState(BridgeResult bridgeResult, TryCount tryCount) {
+public final class GameState {
+
+    private final BridgeResult bridgeResult;
+    private final TryCount tryCount;
+
+    public GameState(BridgeResult bridgeResult, TryCount tryCount) {
+        this.bridgeResult = bridgeResult;
+        this.tryCount = tryCount;
+    }
 
     public static GameState from(int size) {
         BridgeResult bridgeResult = BridgeResult.from(size);
@@ -29,5 +37,13 @@ public record GameState(BridgeResult bridgeResult, TryCount tryCount) {
     public void retry() {
         bridgeResult.retry();
         tryCount.increaseTryCount();
+    }
+
+    public BridgeResult bridgeResult() {
+        return bridgeResult;
+    }
+
+    public TryCount tryCount() {
+        return tryCount;
     }
 }

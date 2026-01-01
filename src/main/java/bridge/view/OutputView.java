@@ -2,14 +2,12 @@ package bridge.view;
 
 import bridge.constant.BridgeSelection;
 import bridge.constant.Signature;
-import bridge.generator.domain.BridgeResult;
-import bridge.generator.domain.GameResult;
+import bridge.domain.BridgeResult;
+import bridge.domain.GameResult;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 사용자에게 게임 진행 상황과 결과를 출력하는 역할을 한다.
- */
+
 public final class OutputView {
 
     private OutputView() {

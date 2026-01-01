@@ -1,11 +1,13 @@
-package bridge.generator.domain;
+package bridge.domain;
 
 public class TryCount {
+
+    private static final int INIT_TRY_COUNT = 1;
 
     private int tryCount;
 
     public TryCount() {
-        tryCount = 1;
+        tryCount = INIT_TRY_COUNT;
     }
 
     public static TryCount newInstance() {

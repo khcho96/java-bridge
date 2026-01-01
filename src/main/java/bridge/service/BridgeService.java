@@ -1,8 +1,8 @@
 package bridge.service;
 
 import bridge.constant.BridgeSelection;
-import bridge.generator.domain.BridgeGame;
-import bridge.generator.domain.GameResult;
+import bridge.domain.BridgeGame;
+import bridge.domain.GameResult;
 
 public class BridgeService {
 

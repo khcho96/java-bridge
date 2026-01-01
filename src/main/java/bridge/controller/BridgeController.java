@@ -3,7 +3,7 @@ package bridge.controller;
 import bridge.constant.BridgeSelection;
 import bridge.constant.Menu;
 import bridge.constant.Result;
-import bridge.generator.domain.GameResult;
+import bridge.domain.GameResult;
 import bridge.service.BridgeService;
 import bridge.util.InputParser;
 import bridge.util.Retry;
@@ -22,6 +22,10 @@ public class BridgeController {
         OutputView.printStart();
         makeBridge();
 
+        OutputView.printResult(getGameResult());
+    }
+
+    private GameResult getGameResult() {
         GameResult gameResult;
         while (true) {
             gameResult = startGame();
@@ -35,8 +39,7 @@ public class BridgeController {
             }
             bridgeService.retry();
         }
-
-        OutputView.printResult(gameResult);
+        return gameResult;
     }
 
     private static Menu getMenu() {
