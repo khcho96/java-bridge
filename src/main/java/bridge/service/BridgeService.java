@@ -1,6 +1,8 @@
 package bridge.service;
 
+import bridge.constant.BridgeSelection;
 import bridge.generator.domain.BridgeGame;
+import bridge.generator.domain.GameResult;
 
 public class BridgeService {
 
@@ -10,7 +12,19 @@ public class BridgeService {
         bridgeGame = BridgeGame.from(bridgeSize);
     }
 
-    // 도메인 객체 인스턴스 변수로 저장
+    public boolean gameOver() {
+        return bridgeGame.gameOver();
+    }
 
-    // 메서드
+    public void move(BridgeSelection moving) {
+        bridgeGame.move(moving);
+    }
+
+    public GameResult getResult() {
+        return bridgeGame.getResult();
+    }
+
+    public void retry() {
+        bridgeGame.retry();
+    }
 }

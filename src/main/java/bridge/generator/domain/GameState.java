@@ -1,26 +1,33 @@
 package bridge.generator.domain;
 
-public class GameState {
+import bridge.constant.BridgeSelection;
 
-    private final BridgeResult bridgeResult;
-    private final TryCount tryCount;
+public record GameState(BridgeResult bridgeResult, TryCount tryCount) {
 
-    public GameState(BridgeResult bridgeResult, TryCount tryCount) {
-        this.bridgeResult = bridgeResult;
-        this.tryCount = tryCount;
-    }
-
-    public static GameState newInstance() {
-        BridgeResult bridgeResult = BridgeResult.newInstance();
+    public static GameState from(int size) {
+        BridgeResult bridgeResult = BridgeResult.from(size);
         TryCount tryCount = TryCount.newInstance();
         return new GameState(bridgeResult, tryCount);
     }
 
-    public BridgeResult getBridgeResult() {
-        return bridgeResult;
+    public boolean isSuccess() {
+        return bridgeResult.isSuccess();
     }
 
-    public TryCount getTryCount() {
-        return tryCount;
+    public boolean gameOver() {
+        return bridgeResult.gameOver();
+    }
+
+    public void setSuccess(BridgeSelection moving) {
+        bridgeResult.setSuccess(moving);
+    }
+
+    public void setFailure(BridgeSelection moving) {
+        bridgeResult.setFailure(moving);
+    }
+
+    public void retry() {
+        bridgeResult.retry();
+        tryCount.increaseTryCount();
     }
 }

@@ -1,5 +1,6 @@
 package bridge.util;
 
+import bridge.view.OutputView;
 import java.util.function.Supplier;
 
 public final class Retry {

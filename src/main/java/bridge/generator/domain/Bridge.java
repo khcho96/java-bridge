@@ -9,6 +9,7 @@ import java.util.List;
 public class Bridge {
 
     private final List<BridgeSelection> bridge;
+    private int index;
 
     private Bridge(List<BridgeSelection> bridge) {
         validateSize(bridge);
@@ -28,5 +29,13 @@ public class Bridge {
         if (bridge.size() < 3 || bridge.size() > 20) {
             throw new IllegalArgumentException(ErrorMessage.BRIDGE_SIZE_ERROR.getErrorMessage());
         }
+    }
+
+    public BridgeSelection next() {
+        return bridge.get(index++);
+    }
+
+    public void retry() {
+        index = 0;
     }
 }
