@@ -1,6 +1,7 @@
-package bridge.domain;
+package bridge.domain.dto;
 
 import bridge.constant.Result;
+import bridge.domain.GameState;
 
 public final class GameResult {
     private final GameState gameState;

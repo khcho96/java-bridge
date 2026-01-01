@@ -2,6 +2,7 @@ package bridge.domain;
 
 import bridge.constant.BridgeSelection;
 import bridge.constant.Result;
+import bridge.domain.dto.GameResult;
 
 public class BridgeGame {
 

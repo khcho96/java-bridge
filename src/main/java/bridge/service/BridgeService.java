@@ -2,7 +2,7 @@ package bridge.service;
 
 import bridge.constant.BridgeSelection;
 import bridge.domain.BridgeGame;
-import bridge.domain.GameResult;
+import bridge.domain.dto.GameResult;
 
 public class BridgeService {
 

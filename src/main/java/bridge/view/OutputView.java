@@ -3,7 +3,7 @@ package bridge.view;
 import bridge.constant.BridgeSelection;
 import bridge.constant.Signature;
 import bridge.domain.BridgeResult;
-import bridge.domain.GameResult;
+import bridge.domain.dto.GameResult;
 import java.util.ArrayList;
 import java.util.List;
 

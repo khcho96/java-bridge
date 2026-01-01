@@ -3,7 +3,7 @@ package bridge.controller;
 import bridge.constant.BridgeSelection;
 import bridge.constant.Menu;
 import bridge.constant.Result;
-import bridge.domain.GameResult;
+import bridge.domain.dto.GameResult;
 import bridge.service.BridgeService;
 import bridge.util.InputParser;
 import bridge.util.Retry;
